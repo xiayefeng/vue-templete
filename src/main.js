@@ -9,6 +9,7 @@ import store from './store'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 import './style/element-variables.scss'
+import 'font-awesome/scss/font-awesome.scss'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
