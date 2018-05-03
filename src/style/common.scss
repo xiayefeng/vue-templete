@@ -1,0 +1,85 @@
+@import 'mixin.scss';
+
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background:$yx-bg;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, "microsoft yahei", arial, STHeiTi, sans-serif;
+}
+
+header,
+footer,
+section,
+article,
+aside,
+nav,
+address,
+figure,
+figcaption,
+menu,
+details {
+    display: block;
+}
+
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+img {
+    border: 0;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    &:hover,
+    &:active {
+        outline: 0;
+        text-decoration: none;
+    }
+}
+
+select,
+input {
+    @include border();
+}
+
+.el-input__inner:focus,
+.el-textarea__inner:focus {
+    border-color: #A1CEFB;
+}
+
+
