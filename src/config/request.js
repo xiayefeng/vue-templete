@@ -1,12 +1,12 @@
 import axios from 'axios'
 import {hex_md5 as md5} from './md5'
-import urlObj from './url'
+import baseUrl from './url'
 
 var encode=encodeURIComponent;
 axios.defaults.withCredentials=true;
 
 export function req ( csjson, type = 'POST') {
-  const url = urlObj.baseUrl()
+  const url = baseUrl().url
   type = type.toLocaleLowerCase()
   return axios({
     method: type,
@@ -18,7 +18,7 @@ export function req ( csjson, type = 'POST') {
 
 export function reqMd5(csjson) {
   let key = sjNum();
-  const url=urlObj.baseUrl();
+  const url=baseUrl().url
 	csjson.SIGN = getSignByJson(csjson,key);
   console.log(url);
   return axios.post(url,csjson,{

@@ -11,8 +11,11 @@ var baseUrl = function() {
   //basePath = 'http://120.77.245.151:8080/yunhis';
   //basePath='http://120.78.78.69:8080/yunhis';
   //basePath="http://192.168.1.172:8880/yunhis";
-  return basePath + "/skip/controller/execute.action";
+  return {
+    url: basePath + "/skip/controller/execute.action",
+    mainUrl: URL
+  };
   //return  '/skip/controller/execute.action';
 };
 
-export default {baseUrl, URL};
+export default {baseUrl};
