@@ -5,7 +5,7 @@ var baseUrl = function() {
   let URL = basePath
   if (process.env.NODE_ENV === "development") {
     basePath = "/yunhis";
-    URL = 'http://120.77.145.235:8085/yunhis'
+    URL = 'http://120.77.145.235:8080/yunhis'
   }
   console.log(basePath);
   //basePath = 'http://120.77.245.151:8080/yunhis';
