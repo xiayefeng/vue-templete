@@ -6,7 +6,7 @@
  * @param {Function} f
  * @return {*}
  */
-export function find (list, f) {
+export function find(list, f) {
   return list.filter(f)[0]
 }
 
@@ -19,7 +19,7 @@ export function find (list, f) {
  * @param {Array<Object>} cache
  * @return {*}
  */
-export function deepCopy (obj, cache = []) {
+export function deepCopy(obj, cache = []) {
   // just return if obj is immutable value
   if (obj === null || typeof obj !== 'object') {
     return obj
@@ -49,30 +49,33 @@ export function deepCopy (obj, cache = []) {
 /**
  * forEach for object
  */
-export function forEachValue (obj, fn) {
+export function forEachValue(obj, fn) {
   Object.keys(obj).forEach(key => fn(obj[key], key))
 }
 
-export function isObject (obj) {
+export function isObject(obj) {
   return obj !== null && typeof obj === 'object'
 }
 
-export function isPromise (val) {
+export function isPromise(val) {
   return val && typeof val.then === 'function'
 }
 
-export function assert (condition, msg) {
+export function assert(condition, msg) {
   if (!condition) throw new Error(`[vuex] ${msg}`)
 }
 
-export function getToday () {
+export function getToday() {
   let today = new Date()
   const year = today.getFullYear()
   const month = today.getMonth() + 1
   const day = today.getDate()
   return year + '-' + twoBit(month) + '-' + twoBit(day)
 }
-export function dateFormat ({ date = new Date(), format = 'yyyy-MM-dd' } = {}) {
+export function dateFormat({
+  date = new Date(),
+  format = 'yyyy-MM-dd'
+} = {}) {
   if (date instanceof Date) {
     const o = {
       'M+': date.getMonth() + 1, // 月份
@@ -96,6 +99,26 @@ export function dateFormat ({ date = new Date(), format = 'yyyy-MM-dd' } = {}) {
     console.log('params error!')
   }
 }
-export function twoBit (num) {
+export function twoBit(num) {
   return num < 10 ? '0' + num : num
+}
+export function RemoveArrItem() {
+  let arr = new Array()
+  arr.push.apply(arr, arguments)
+  arr.remove = function (item) {
+    if (arr.indexOf(item) === -1) {
+      return Array.from(arr)
+    }
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === item && !isNaN(item)) {
+        arr.splice(i, 1)
+        break
+      } else if (arr[i] != arr[i] && item != item) {
+        arr.splice(i, 1)
+        break
+      }
+    }
+    return Array.from(arr)
+  }
+  return arr
 }
