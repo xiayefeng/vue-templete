@@ -1,6 +1,6 @@
 # vue-templete
 
-> yunxing
+> vue demo
 
 ## Build Setup
 
