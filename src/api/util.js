@@ -6,7 +6,7 @@
  * @param {Function} f
  * @return {*}
  */
-export function find(list, f) {
+export function find (list, f) {
   return list.filter(f)[0]
 }
 
@@ -19,19 +19,19 @@ export function find(list, f) {
  * @param {Array<Object>} cache
  * @return {*}
  */
-export function deepCopy(obj, cache = []) {
+export function deepCopy (obj, cache = []) {
   // just return if obj is immutable value
   if (obj === null || typeof obj !== 'object') {
     return obj
   }
 
   // if obj is hit, it is in circular structure
-  const hit = find(cache, c => c.original === obj);
+  const hit = find(cache, c => c.original === obj)
   if (hit) {
     return hit.copy
   }
 
-  const copy = Array.isArray(obj) ? [] : {};
+  const copy = Array.isArray(obj) ? [] : {}
   // put the copy into cache at first
   // because we want to refer it in recursive deepCopy
   cache.push({
@@ -40,7 +40,7 @@ export function deepCopy(obj, cache = []) {
   })
 
   Object.keys(obj).forEach(key => {
-    copy[key] = deepCopy(obj[key], cache);
+    copy[key] = deepCopy(obj[key], cache)
   })
 
   return copy
@@ -49,30 +49,30 @@ export function deepCopy(obj, cache = []) {
 /**
  * forEach for object
  */
-export function forEachValue(obj, fn) {
+export function forEachValue (obj, fn) {
   Object.keys(obj).forEach(key => fn(obj[key], key))
 }
 
-export function isObject(obj) {
+export function isObject (obj) {
   return obj !== null && typeof obj === 'object'
 }
 
-export function isPromise(val) {
+export function isPromise (val) {
   return val && typeof val.then === 'function'
 }
 
-export function assert(condition, msg) {
+export function assert (condition, msg) {
   if (!condition) throw new Error(`[vuex] ${msg}`)
 }
 
-export function getToday() {
+export function getToday () {
   let today = new Date()
   const year = today.getFullYear()
   const month = today.getMonth() + 1
   const day = today.getDate()
   return year + '-' + twoBit(month) + '-' + twoBit(day)
 }
-export function dateFormat({
+export function dateFormat ({
   date = new Date(),
   format = 'yyyy-MM-dd'
 } = {}) {
@@ -99,10 +99,10 @@ export function dateFormat({
     console.log('params error!')
   }
 }
-export function twoBit(num) {
+export function twoBit (num) {
   return num < 10 ? '0' + num : num
 }
-export function RemoveArrItem() {
+export function RemoveArrItem () {
   let arr = new Array()
   arr.push.apply(arr, arguments)
   arr.remove = function (item) {
@@ -121,4 +121,12 @@ export function RemoveArrItem() {
     return Array.from(arr)
   }
   return arr
+}
+export function excel (el, name) {
+  var winname = window.open('', '_blank', 'top=1000')
+  var strHTML = document.all[el].innerHTML
+  winname.document.open('text/html', 'replace')
+  winname.document.writeln(strHTML)
+  winname.document.execCommand('saveas', '', name + '.xls')
+  winname.close()
 }

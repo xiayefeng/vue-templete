@@ -12,7 +12,6 @@ import './style/element-variables.scss'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
-Vue.prototype.$axios = axios
 
 // 注册一个全局自定义指令 `v-focus`
 Vue.directive('focus', {
