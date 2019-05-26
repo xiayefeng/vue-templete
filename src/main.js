@@ -3,7 +3,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from 'axios'
 import ElementUI from 'element-ui'
 import store from './store'
 import upperFirst from 'lodash/upperFirst'
